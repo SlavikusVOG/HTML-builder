@@ -1,8 +1,6 @@
 import process from 'node:process';
 import fsPromises from 'node:fs/promises';
 import * as readline from 'node:readline';
-import EventEmitter from 'node:events';
-import { pipeline } from 'node:stream/promises';
 import path from 'node:path';
 
 const file = path.format({
