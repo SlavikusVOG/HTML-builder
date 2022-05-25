@@ -1,7 +1,9 @@
-import { mkdir, readdir, readFile, writeFile } from "fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "fs/promises";
 import path from "node:path";
 
 const copyDir = async (currDir) => {
+	await rm(path.join(currDir, 'files-copy'), { recursive: true, force: true });
+
 	await mkdir(path.join(currDir, 'files-copy'), {recursive: true});
 	const files = await readdir(path.join(currDir, 'files'), {withFileTypes: true});
 	files.forEach(async(file) => {
